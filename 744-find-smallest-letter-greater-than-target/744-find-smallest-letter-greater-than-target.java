@@ -12,9 +12,6 @@ class Solution {
                 start = start + 1;
             }
         }
-        if (start > letters.length-1){
-            return letters[0];
-        }
-        return letters[start];
+        return letters[start % letters.length];
     }
 }
