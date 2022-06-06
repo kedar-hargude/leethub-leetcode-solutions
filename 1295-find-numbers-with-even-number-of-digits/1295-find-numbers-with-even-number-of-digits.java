@@ -1,22 +1,17 @@
 class Solution {
     public int findNumbers(int[] nums) {
-        int count = 0;
-        for(int element: nums){
-            if(checkEvenDigits(element)){
-                count++;
+        int answerCount = 0;
+        // finding the number of digits
+        for(int num: nums){
+            int digitCount = 0;
+            while (num > 0){
+                num /= 10;
+                digitCount += 1;
+            }
+            if(digitCount % 2 == 0){
+                answerCount += 1;
             }
         }
-        return count;
-    }
-    
-    static boolean checkEvenDigits(int element){
-        if(element < 0){
-            element *= -1;
-        }
-        if(element == 0){
-            return false;
-        }
-        int numberOfDigits = (int)(Math.log10(element)) + 1;        
-        return (numberOfDigits%2 == 0);
+        return answerCount;
     }
 }
