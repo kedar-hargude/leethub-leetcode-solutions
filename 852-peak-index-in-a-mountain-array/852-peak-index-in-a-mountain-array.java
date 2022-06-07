@@ -3,20 +3,16 @@ class Solution {
         int start = 0;
         int end = arr.length - 1;
 
-        while(start < end ){
-            int mid = start + (end-start)/2;
-
-            //we will only be checking mid and (mid+1) values.
+        while(start < end){
+            int mid = start + (end - start)/2;
             if(arr[mid] > arr[mid+1]){
-                //descending part of the array
-                //this mid can be the answer, but look at left too. So, end!= mid-1...we may miss
-                // the answer if it is the end value
+                //we've entered the descending part of the array
+                //the peak can be at the left too
                 end = mid;
             }
             else{
-                //ascending part of the array
-                start = mid+1;
-                // as we know mid+1 is greater than mid...so why waste it.
+                //we've entered the ascending part of the array
+                start = mid + 1;
             }
         }
         return start;
