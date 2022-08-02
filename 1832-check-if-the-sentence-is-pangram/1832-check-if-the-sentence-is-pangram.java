@@ -1,12 +1,8 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        if(sentence.length() < 26){
-            return false;
-        }
-
-        String alphabets = "abcdefghijklmnopqrstuvwxyz";
-        for(int i = 0; i < alphabets.length(); i++){
-            if(sentence.indexOf(alphabets.charAt(i)) == -1){
+        if(sentence.length() < 26) return false;
+        for(int i = 0; i < 26; i++){
+            if(sentence.indexOf((char)(i+97))== -1){
                 return false;
             }
         }
