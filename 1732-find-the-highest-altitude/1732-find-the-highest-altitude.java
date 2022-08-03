@@ -4,9 +4,7 @@ class Solution {
         int max = 0;
         for(int gained: gain){
             altitude += gained;
-            if(altitude > max){
-                max = altitude;
-            }
+            max = Math.max(altitude, max);
         }
         return max;
     }
