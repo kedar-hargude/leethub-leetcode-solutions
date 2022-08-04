@@ -1,24 +1,11 @@
 class Solution {
     public int diagonalSum(int[][] mat) {
-        if (mat.length == 1) {
-            return mat[0][0];
+        int res = 0;
+        int n = mat.length;
+        for (int i=0; i<n; i++) {
+            res += mat[i][i]; // Primary diagonals are row = column! 
+            res += mat[n-1-i][i]; // Secondary diagonals are row + column = n-1!
         }
-
-        int start = 0;
-        int end = mat.length - 1;
-        int sum = 0;
-        while(end >= 0){
-            for(int i = 0; i < mat.length; i++){
-
-                if(start == end){
-                    sum += mat[i][start];
-                } else {
-                    sum += mat[i][start] + mat[i][end];
-                }
-                start++;
-                end--;
-            }
-        }
-        return sum;
+        return n % 2 == 0 ? res : res - mat[n/2][n/2]; // if n is a odd number, that mean we have added the center element twice!
     }
 }
